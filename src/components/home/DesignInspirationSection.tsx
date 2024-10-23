@@ -1,7 +1,7 @@
 import React from "react";
 import MyButton from "../Button";
 import Image from "next/image";
-import ProductCategorySelector from "../ProductCategorySelector";
+
 import { designInspirations } from "@/utils/fakedatabase";
 
 const DesignInspirationSection = () => {
@@ -10,7 +10,7 @@ const DesignInspirationSection = () => {
       <h1 className="text-4xl font-semibold text-gray-800">
         Design inspiration and modern home ideas
       </h1>
-      <ProductCategorySelector />
+      {/* <ProductCategorySelector /> */}
       {/* DESIGN INSPIRATION GRID */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {designInspirations.map((design, index) => (
