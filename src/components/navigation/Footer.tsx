@@ -10,7 +10,7 @@ const Footer = () => {
     <div className="flex md:flex-row flex-col bg-black w-full h-[805px] md:h-[410px] text-white p-20 justify-between">
       {/* FIRST SECTION */}
       <div className="flex flex-col justify-between">
-        <Tafuco alt={"tafuco"} width={83} height={30} className="text-white" />
+        <Tafuco width={83} height={30} className="text-white" />
         <ul className="grid grid-cols-6 justify-items-center">
           <li className="justify-self-start">Home</li>
           <li className="text-gray-400">/</li>
@@ -51,7 +51,7 @@ const Footer = () => {
         <div className="flex h-full justify-end">
           <Link href="#">
             <button className="flex rounded-full bg-secondary active:scale-95 justify-center items-center min-w-16 h-16">
-              <ArrowUp alt={"cart"} width={24} height={24} className="flex" />
+              <ArrowUp width={24} height={24} className="flex" />
             </button>
           </Link>
         </div>
