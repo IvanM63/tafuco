@@ -35,7 +35,11 @@ export const authOptions: NextAuthOptions = {
         password: {},
       },
       async authorize(credentials) {
-        let user: { email: string; password?: string | null } | null = null;
+        let user: {
+          id: number;
+          email: string;
+          password?: string | null;
+        } | null = null;
 
         //Validate credentials using zod (email, password)
         const parsedCredentials = signInSchema.safeParse(credentials);
@@ -76,7 +80,11 @@ export const authOptions: NextAuthOptions = {
         const { password, ...userWithoutPassword } = user;
         console.log(user);
 
-        return user;
+        return {
+          id: user.id.toString(),
+          email: user.email,
+          password: user.password,
+        };
       },
     }),
   ],

@@ -83,10 +83,14 @@ const OrderListPage = () => {
       {/* ORDER LIST ALL */}
       {loading && <LineSkeleton />}
       {loading && <LineSkeleton />}
-      {orders.map((item, index) => (
-        // ORDER LIST CARD
-        <OrderListCard key={index} order={item} />
-      ))}
+      {!orders ? (
+        <div> There are no order</div>
+      ) : (
+        orders.map((item, index) => (
+          // ORDER LIST CARD
+          <OrderListCard key={index} order={item} />
+        ))
+      )}
 
       {/* PAGINATION CONTROL */}
       <PaginationControl
