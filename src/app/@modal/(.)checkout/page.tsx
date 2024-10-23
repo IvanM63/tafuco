@@ -29,6 +29,7 @@ const InterceptCheckoutPage = () => {
   });
 
   //TODO PASS VALUE TO PAYMENT MODAL
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleToPayment = async (values: z.infer<typeof shippingSchema>) => {
     setShowPaymentModal(true);
   };

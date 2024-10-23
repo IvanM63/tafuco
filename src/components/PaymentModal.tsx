@@ -32,6 +32,7 @@ const PaymentModal = ({
     },
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleOrder = async (values: z.infer<typeof paymentSchema>) => {
     const result = await fetch(`/api/users/${data?.user.id}/order`, {
       method: "POST",

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import IconStar from "/public/icons/star-fill.svg";
 import IconStarHalf from "/public/icons/star-half-fill.svg";
 

@@ -1,8 +1,7 @@
 import RouteBreadcrumb from "@/components/RouteBreadcrumb";
 import React from "react";
-import ProductCategorySelector from "@/components/ProductCategorySelector";
+
 import TopProductSection from "@/components/home/TopProductSection";
-import InputSearch from "@/components/InputSearch";
 
 const ShopPage = () => {
   return (
@@ -23,7 +22,7 @@ const ShopPage = () => {
         {/* <InputSearch /> */}
       </div>
       {/* CATEGORIES SELECTION */}
-      <ProductCategorySelector />
+      {/* <ProductCategorySelector /> */}
       {/* TOP PRODUCTS / SEARCHED PRODUCT */}
       <TopProductSection />
     </main>

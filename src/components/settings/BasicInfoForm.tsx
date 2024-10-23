@@ -61,6 +61,7 @@ const BasicInfoForm = ({ userId }: { userId: string }) => {
   }, [formAddress, userId]);
 
   const handleInfoSubmit = async (values: z.infer<typeof basicInfoSchema>) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const result = await fetch(`/api/users/${userId}`, {
       method: "PATCH",
       body: JSON.stringify(values),
