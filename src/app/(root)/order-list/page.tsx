@@ -6,6 +6,7 @@ import { titleCase } from "@/utils/utils";
 import { useSession } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { Suspense } from "react";
 
 import React, { useEffect, useState } from "react";
 
@@ -63,42 +64,44 @@ const OrderListPage = () => {
   };
 
   return (
-    <div className="flex flex-col w-full px-10 md:px-20 py-4 gap-8">
-      <div className="text-2xl font-bold">My Orders</div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className="flex flex-col w-full px-10 md:px-20 py-4 gap-8">
+        <div className="text-2xl font-bold">My Orders</div>
 
-      {/* SHIPPING STATUS TAB */}
-      <div className="flex flex-row">
-        {ordersStatus.map((status, index) => (
-          <div
-            key={index}
-            onClick={() => handleOnChangeFilter(status)}
-            className={`${
-              status === filter && "border-black text-tertiary-black"
-            }  cursor-pointer text-lg italic border-b-2 px-8 py-2 text-gray-400 `}
-          >
-            {status}
-          </div>
-        ))}
+        {/* SHIPPING STATUS TAB */}
+        <div className="flex flex-row">
+          {ordersStatus.map((status, index) => (
+            <div
+              key={index}
+              onClick={() => handleOnChangeFilter(status)}
+              className={`${
+                status === filter && "border-black text-tertiary-black"
+              }  cursor-pointer text-lg italic border-b-2 px-8 py-2 text-gray-400 `}
+            >
+              {status}
+            </div>
+          ))}
+        </div>
+        {/* ORDER LIST ALL */}
+        {loading && <LineSkeleton />}
+        {loading && <LineSkeleton />}
+        {!orders ? (
+          <div> There are no order</div>
+        ) : (
+          orders.map((item, index) => (
+            // ORDER LIST CARD
+            <OrderListCard key={index} order={item} />
+          ))
+        )}
+
+        {/* PAGINATION CONTROL */}
+        <PaginationControl
+          totalPage={totalPages}
+          currentPage={currentPage}
+          handlePageChange={handleOnChangePage}
+        />
       </div>
-      {/* ORDER LIST ALL */}
-      {loading && <LineSkeleton />}
-      {loading && <LineSkeleton />}
-      {!orders ? (
-        <div> There are no order</div>
-      ) : (
-        orders.map((item, index) => (
-          // ORDER LIST CARD
-          <OrderListCard key={index} order={item} />
-        ))
-      )}
-
-      {/* PAGINATION CONTROL */}
-      <PaginationControl
-        totalPage={totalPages}
-        currentPage={currentPage}
-        handlePageChange={handleOnChangePage}
-      />
-    </div>
+    </Suspense>
   );
 };
 

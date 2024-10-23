@@ -1,6 +1,7 @@
 import Footer from "@/components/navigation/Footer";
 import Header from "@/components/navigation/Header";
 import React from "react";
+import { Suspense } from "react";
 
 const RootLayout = ({
   children,
@@ -12,7 +13,8 @@ const RootLayout = ({
   return (
     <main>
       <Header />
-      {children}
+      <Suspense>{children}</Suspense>
+
       <Footer />
       {modal}
     </main>
